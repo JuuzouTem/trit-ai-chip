@@ -7,28 +7,29 @@ project:
   language:     "Verilog"
   clock_hz:     10000000
 
-  # Çipin kaplayacağı silikon alan (1 blok yeterlidir)
+  # Çipin kaplayacağı silikon alan
   tiles: "1x1"
 
-  # En üst modül adımız
+  # En üst modül adı
   top_module:  "tt_um_example"
 
   # Kaynak dosyamız
   source_files:
     - "project.v"
 
-# Pin Açıklamaları (Çip kataloğunda görünecek bilgiler)
+# Zorunlu Şablon Versiyonu (Sistemin aradığı satır)
+yaml_version: 6
+
+# Çip Kataloğu Belgeleri
 documentation: 
   author:       "JuuzouTem"
   title:        "Trit AI NPU"
   language:     "Verilog"
   description:  "4-Core Ternary 1.58-Bit GEMM Neural Accelerator"
 
-  # Nasıl çalıştırılır?
   how_it_works:   "Processes 1.58-bit ternary weights without multipliers using INT adders and ReLU."
   how_to_test:    "Set ui_in[0]=1 to START. Observe done on uio_out[0] and result on uo_out."
 
-  # Pin listesi
   inputs:
     - start
     - neuron_sel[0]
