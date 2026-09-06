@@ -1,56 +1,58 @@
-# Tiny Tapeout project information
+# Tiny Tapeout Çip Kimlik Kartı
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "Trit AI NPU"
+  author:       "JuuzouTem"
+  discord:      ""
+  description:  "4-Core Ternary 1.58-Bit GEMM Neural Accelerator"
+  language:     "Verilog"
+  clock_hz:     10000000
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  # Çipin kaplayacağı silikon alan (1 blok yeterlidir)
+  tiles: "1x1"
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  # En üst modül adımız
   top_module:  "tt_um_example"
 
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  # Kaynak dosyamız
   source_files:
     - "project.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
-pinout:
-  # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+# Pin Açıklamaları (Çip kataloğunda görünecek bilgiler)
+documentation: 
+  author:       "JuuzouTem"
+  title:        "Trit AI NPU"
+  language:     "Verilog"
+  description:  "4-Core Ternary 1.58-Bit GEMM Neural Accelerator"
 
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  # Nasıl çalıştırılır?
+  how_it_works:   "Processes 1.58-bit ternary weights without multipliers using INT adders and ReLU."
+  how_to_test:    "Set ui_in[0]=1 to START. Observe done on uio_out[0] and result on uo_out."
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
-
-# Do not change!
-yaml_version: 6
+  # Pin listesi
+  inputs:
+    - start
+    - neuron_sel[0]
+    - neuron_sel[1]
+    - none
+    - none
+    - none
+    - none
+    - none
+  outputs:
+    - out0
+    - out1
+    - out2
+    - out3
+    - out4
+    - out5
+    - out6
+    - out7
+  bidirectional:
+    - done
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
