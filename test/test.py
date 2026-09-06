@@ -7,7 +7,7 @@ async def test_project(dut):
     dut._log.info("Trit NPU Testi Baslatiliyor...")
 
     # Saat sinyalini başlatıyoruz
-    clock = Clock(dut.clk, 10, unit="ns")
+    clock = Clock(dut.clk, 10, units="ns")
     cocotb.start_soon(clock.start())
 
     # Donanımı Sıfırla (Reset)
